@@ -23,7 +23,7 @@
   </template>
   
   <script>
-  import apiClient from '@/services/api.js';
+  import { kitchenApiClient } from '@/services/api.js';
   
   export default {
     name: 'PendingOrdersComponent',
@@ -35,7 +35,7 @@
     methods: {
       async fetchPendingOrders() {
         try {
-          const response = await apiClient.get('/kitchen/orders-in-preparation');
+          const response = await kitchenApiClient.get('/kitchen/orders-in-preparation');
           this.pendingOrders = response.data;
         } catch (error) {
           console.error('Error fetching pending orders:', error);

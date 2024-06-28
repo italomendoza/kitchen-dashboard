@@ -14,7 +14,7 @@
   </template>
   
   <script>
-  import apiClient from '@/services/api.js';
+  import { ingredientsApiClient } from '@/services/api.js';
   
   export default {
     name: 'IngredientsComponent',
@@ -26,7 +26,7 @@
     methods: {
       async fetchIngredients() {
         try {
-          const response = await apiClient.get('/ingredients/available');
+          const response = await ingredientsApiClient.get('/ingredients/available');
           this.ingredients = response.data;
         } catch (error) {
           console.error('Error fetching ingredients:', error);

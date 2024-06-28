@@ -9,14 +9,14 @@
   </template>
   
   <script>
-  import apiClient from '@/services/api.js';
+  import { ingredientsApiClient } from '@/services/api.js';
   
   export default {
     name: 'RestockInventoryComponent',
     methods: {
       async restockInventory() {
         try {
-          const response = await apiClient.post('/ingredients/run-job');
+          const response = await ingredientsApiClient.post('/ingredients/run-job');
           console.log('Inventory restocked:', response.data);
           // Puedes manejar la respuesta según sea necesario
         } catch (error) {

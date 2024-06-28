@@ -25,7 +25,7 @@
   </template>
   
   <script>
-  import apiClient from '@/services/api.js';
+  import { ingredientsApiClient } from '@/services/api.js';
   
   export default {
     name: 'PurchaseHistoryComponent',
@@ -37,7 +37,7 @@
     methods: {
       async fetchPurchaseHistory() {
         try {
-          const response = await apiClient.get('/ingredients/purchase-history');
+          const response = await ingredientsApiClient.get('/ingredients/purchase-history');
           this.purchaseHistory = response.data;
         } catch (error) {
           console.error('Error fetching purchase history:', error);

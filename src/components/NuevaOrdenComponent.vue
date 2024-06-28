@@ -9,14 +9,14 @@
   </template>
   
   <script>
-  import apiClient from '@/services/api.js';
+  import { kitchenApiClient } from '@/services/api.js';
   
   export default {
     name: 'NuevaOrdenComponent',
     methods: {
       async placeOrder() {
         try {
-          const response = await apiClient.post('/kitchen/prepare-dish');
+          const response = await kitchenApiClient.post('/kitchen/prepare-dish');
           console.log('Order placed:', response.data);
         } catch (error) {
           console.error('Error placing order:', error);

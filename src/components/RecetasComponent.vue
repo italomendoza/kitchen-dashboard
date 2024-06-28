@@ -19,7 +19,7 @@
   </template>
   
   <script>
-  import apiClient from '@/services/api.js';
+  import { kitchenApiClient } from '@/services/api.js';
   
   export default {
     name: 'RecipesComponent',
@@ -31,7 +31,7 @@
     methods: {
       async fetchRecipes() {
         try {
-          const response = await apiClient.get('/kitchen/recipes');
+          const response = await kitchenApiClient.get('/kitchen/recipes');
           this.recipes = response.data;
         } catch (error) {
           console.error('Error fetching recipes:', error);

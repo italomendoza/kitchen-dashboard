@@ -23,7 +23,7 @@
   </template>
   
   <script>
-  import apiClient from '@/services/api.js';
+  import { kitchenApiClient } from '@/services/api.js';
   
   export default {
     name: 'OrderHistoryComponent',
@@ -35,7 +35,7 @@
     methods: {
       async fetchOrderHistory() {
         try {
-          const response = await apiClient.get('/kitchen/order-history');
+          const response = await kitchenApiClient.get('/kitchen/order-history');
           this.orderHistory = response.data;
         } catch (error) {
           console.error('Error fetching order history:', error);
