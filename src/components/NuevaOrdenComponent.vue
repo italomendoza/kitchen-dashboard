@@ -10,7 +10,7 @@
   
   <script>
   import { kitchenApiClient } from '@/services/api.js';
-  
+
   export default {
     name: 'NuevaOrdenComponent',
     methods: {
@@ -18,6 +18,7 @@
         try {
           const response = await kitchenApiClient.post('/kitchen/prepare-dish');
           console.log('Order placed:', response.data);
+          window.location.reload();
         } catch (error) {
           console.error('Error placing order:', error);
         }

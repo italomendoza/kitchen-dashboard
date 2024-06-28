@@ -10,7 +10,7 @@
   
   <script>
   import { ingredientsApiClient } from '@/services/api.js';
-  
+
   export default {
     name: 'RestockInventoryComponent',
     methods: {
@@ -18,10 +18,9 @@
         try {
           const response = await ingredientsApiClient.post('/ingredients/run-job');
           console.log('Inventory restocked:', response.data);
-          // Puedes manejar la respuesta según sea necesario
+          window.location.reload();
         } catch (error) {
           console.error('Error restocking inventory:', error);
-          // Manejar errores, mostrar mensajes, etc.
         }
       }
     }
